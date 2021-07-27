@@ -29,11 +29,11 @@ function App() {
     flagg ? setconsoleVal(val.toUpperCase()) : setconsoleVal(val.toLowerCase());
     let presses = buttonPresses + 1;
     setButtonPresses(presses);
-    //shuffleBoard();
+    shuffleBoard();
   }
 
   const [values, setvalues] = useState([ 
-    ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'],
+    //['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'],
     ['1','2','3','4','5','6','7','8','9','0'],
   ['Q','W','E','R','T','Y','U','I','O','P'],
   ['A','S','D','F','G','H','J','K','L',';'],
@@ -68,23 +68,22 @@ function App() {
   var buttonsArray = [];
 
   function shuffleBoard() {
-    let value_temp = [];
-    for (var i = 0; i < values.length; i++) {
-      value_temp.push([]);
-      for (var j = 0; j < values[i].length; j++) {
-        value_temp[i].push([]);
-      }
-    }
-    for (var i = 0; i < values.length; i++) {
-        for (var j = 0; j < values[i].length; j++) {
-            var i1 = Math.floor(Math.random() * (values.length));
-            var j1 = Math.floor(Math.random() * (values.length));
+    let value_temp = values;
+    // for (var i = 0; i < values.length; i++) {
+    //   value_temp.push([]);
+    //   for (var j = 0; j < values[i].length; j++) {
+    //     value_temp[i].push([]);
+    //   }
+    // }
+    for (var i = 0; i < value_temp.length; i++) {
+        for (var j = 0; j < value_temp[i].length; j++) {
+            var i1 = Math.floor(Math.random() * (value_temp.length));
+            var j1 = Math.floor(Math.random() * (value_temp.length));
 
-            var temp = values[i][j];
-            value_temp[i][j] = values[i1][j1];
+            var temp = value_temp[i][j];
+            value_temp[i][j] = value_temp[i1][j1];
             value_temp[i1][j1] = temp;
         }
-
     }
     setvalues(value_temp);
   }
@@ -108,17 +107,17 @@ function App() {
     
   <div className={'button-row'}>   
     {
-    shiftFlag ? buttonsArray[0] : buttonsArray[1]  
+    buttonsArray[0]
     }
+  </div>
+  <div className={'button-row'}>   
+    {buttonsArray[1]}
   </div>
   <div className={'button-row'}>   
     {buttonsArray[2]}
   </div>
   <div className={'button-row'}>   
     {buttonsArray[3]}
-  </div>
-  <div className={'button-row'}>   
-    {buttonsArray[4]}
   </div>
   
     </div>

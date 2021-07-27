@@ -8,8 +8,10 @@ import './index.css';
 const useStyles = makeStyles({
   
     root: {
-      minWidth: 1000,
-      padding:10
+      minWidth: 1450,
+      padding:10,
+      backgroundColor:'black',
+      
     },
     
     title: {
@@ -23,6 +25,7 @@ const useStyles = makeStyles({
 function Jumbotron (props) {
 
   const [value, setValue] = useState("");
+  const [v,setv] = useState("");
   
   const classes = useStyles();
   
@@ -41,7 +44,8 @@ function Jumbotron (props) {
 
   return (
     <Card className={classes.root} variant="outlined">
-      <CardContent>
+      <CardContent >
+      <div className="jumbtron-container">  
       <input
            type="text"
            name="console"
@@ -49,6 +53,7 @@ function Jumbotron (props) {
            onChange={(data) => onInputChange(data)}
            className="jumbotron"
       />
+      </div>
       {/* <input
        type="text"
        name="input"

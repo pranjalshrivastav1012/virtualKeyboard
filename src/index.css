@@ -63,6 +63,7 @@ code {
 }
 .capslock:hover{
   background-color: grey;
+  cursor: pointer;
 }
 
 .shift{
@@ -79,6 +80,7 @@ code {
 }
 .shift:hover{
   background-color: grey;
+  cursor: pointer
 }
 
 .space{
@@ -95,6 +97,7 @@ code {
 }
 .space:hover{
   background-color: grey;
+  cursor: pointer
 }
 .backspace{
   
@@ -110,4 +113,5 @@ code {
 }
 .backspace:hover{
   background-color: grey;
+  cursor: pointer
 }
