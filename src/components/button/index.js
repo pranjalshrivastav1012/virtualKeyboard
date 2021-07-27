@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
         margin: theme.spacing(1),
+        
       },
     },
   }));
@@ -14,13 +15,14 @@ function Btn (props){
     console.log(props.val + " In Btn");
     const classes = useStyles();
     return (
+        
         <div className={classes.root}>
       <Button 
+      key={props.key}
       variant="contained"
       onClick={() => props.onChange(props.val)}
       >{props.val}
       </Button>
-     
     </div>
     );
 }
