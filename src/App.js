@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import Keyboard from './components/keyboard/index'
+
 import Jumbotron from './components/jumbotron'
 import Btn from './components/button'
 import { makeStyles } from '@material-ui/core';
 import   './index.css';
-import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
