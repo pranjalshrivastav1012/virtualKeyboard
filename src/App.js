@@ -16,12 +16,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+let map = new Map();
+map.set('1',"!");
+map.set('2',"@");
+map.set('3',"#");
+map.set('4',"$");
+map.set('5',"%");
+map.set('6',"^");
+map.set('7',"&");
+map.set('8',"*");
+map.set('9',"(");
+map.set('0',")");
+
 
 function App() {
   const classes = useStyles();
   const [consoleVal, setconsoleVal] = useState("");
   const [buttonPresses, setButtonPresses] = useState(0)
-  const [flagg, setflagg] = useState(true) 
+  const [flagg, setflagg] = useState(false) 
   const [shiftFlag, setshiftFlag] = useState(false)
   const onScreenButtonPress = (data) => {
     let val = "";
@@ -90,9 +102,8 @@ function App() {
 
   return (
     <div>
-
       <div className="jumbotron-container">
-    <Jumbotron inputVal={consoleVal} buttonPresses={buttonPresses} flag={flagg}/>
+    <Jumbotron inputVal={consoleVal} map={map} shiftFlag={shiftFlag} buttonPresses={buttonPresses} flag={flagg}/>
     </div>
    
     <div className='items'>
@@ -167,6 +178,8 @@ function App() {
         key = {i}
         val={value[0]}
         style={{}}
+        map={map}
+        shiftFlag={shiftFlag}
         onChange={(data) => onScreenButtonPress(data)}/>
       )
   }

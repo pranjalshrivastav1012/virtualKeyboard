@@ -25,11 +25,36 @@ function Btn (props){
       variant="contained"
       className={props.className}
       onClick={() => props.onChange(props.val)}
-      >{
-      props.flag ? props.val.toUpperCase() : props.val.toLowerCase() }
+      >
+        {
+          getVal()
+        }
+      
       </div>
     </div>
-    );
+     );
+
+     function getVal() {
+       console.log(props);
+      if(props.shiftFlag){
+        switch(props.val){
+          case "0": 
+          case '1':
+          case '2':
+          case '3':
+          case '4':
+          case '5':
+          case '6':
+          case '7':
+          case '8':
+          case '9':
+          return props.map.get(props.val)
+          default: 
+         return  props.flag ? props.val.toUpperCase() : props.val.toLowerCase() }
+        }
+        else{
+          return props.flag ? props.val.toUpperCase() : props.val.toLowerCase() }
+     }
 }
 
 export default Btn;

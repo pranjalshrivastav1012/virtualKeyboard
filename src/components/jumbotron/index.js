@@ -36,8 +36,27 @@ function Jumbotron (props) {
       console.log("Backspace pressed")
       setValue(val.substring(0, val.length - 1 ))
     } else {
-      setValue(val + props.inputVal)
+      if(props.shiftFlag){
+        switch(props.inputVal){
+          case "0": 
+          case '1':
+          case '2':
+          case '3':
+          case '4':
+          case '5':
+          case '6':
+          case '7':
+          case '8':
+          case '9':
+
+          setValue(val + props.map.get(props.inputVal));
+          break;
+         default: setValue(val + props.inputVal)
+    }}
+    else{
+      setValue(val + props.inputVal);
     }
+  }
    
     
   }, [props.buttonPresses])
@@ -54,14 +73,7 @@ function Jumbotron (props) {
            className="jumbotron"
       />
       </div>
-      {/* <input
-       type="text"
-       name="input"
-       value={v}
-       onChange={(data) => handleOnChange(data)}
-      /> */}
       <Button>
-
       </Button>
       </CardContent>
      
@@ -69,6 +81,7 @@ function Jumbotron (props) {
   );
 
   function handleOnChange(data) {
+   
     setv(data.value);
   }
   function onInputChange(event){
