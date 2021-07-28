@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -26,10 +26,11 @@ function Jumbotron (props) {
 
   const [value, setValue] = useState("");
   const [v,setv] = useState("");
-  
+  const inputRef = useRef(null);
   const classes = useStyles();
   
   useEffect(() => {
+    inputRef.current.focus();
     console.log("buttonPressTriggered");
     var val = value;
     if(props.inputVal === "backspace"){
@@ -66,12 +67,15 @@ function Jumbotron (props) {
       <CardContent >
       <div className="jumbtron-container">  
       <input
+          autoFocus="true"
            type="text"
            name="console"
            value={value}
+           ref={inputRef}
            onChange={(data) => onInputChange(data)}
            className="jumbotron"
       />
+      <i></i>
       </div>
       <Button>
       </Button>
