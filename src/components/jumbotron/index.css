@@ -6,9 +6,18 @@
     color: green;
     font-size: 45px;
     margin: 5px 20px 75px;
+    overflow-x: scroll;
+    display: flex;
+    background-color: #100e17;
+    padding: 3rem;
 }
 .jumbtron-container {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
+    width: 1000px; */
+        overflow-x: scroll;
+        display: flex;
+        background-color: #100e17;
+        padding: 3rem;
 }

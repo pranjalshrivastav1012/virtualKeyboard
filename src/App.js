@@ -68,11 +68,25 @@ function App() {
     setButtonPresses(presses);
   }
 
+  const onEnterPress = (data) => {
+    let val = "";
+    val = data;
+    setconsoleVal(val);
+    let presses = buttonPresses + 1;
+    setButtonPresses(presses);
+  }
+
+
   const onBackspacePress = () => {
     setconsoleVal("backspace");
     let presses = buttonPresses + 1;
     setButtonPresses(presses);
     
+  }
+  const onTabPress = (val) => {
+    setconsoleVal(val);
+    let presses = buttonPresses + 1;
+    setButtonPresses(presses);
   }
   
 
@@ -102,7 +116,7 @@ function App() {
   return (
     <div>
       <div className="jumbotron-container">
-    <Jumbotron inputVal={consoleVal} map={map} shiftFlag={shiftFlag} buttonPresses={buttonPresses} flag={flagg}/>
+    <Jumbotron  inputVal={consoleVal} map={map} shiftFlag={shiftFlag} buttonPresses={buttonPresses} flag={flagg}/>
     </div>
    
     <div className='items'>
@@ -161,6 +175,21 @@ function App() {
       onChange={() => onBackspacePress()}
 
       />
+       <Btn 
+     val="enter"
+     className="enter"
+      variant="contained"
+      onChange={() => onEnterPress("\n")}
+
+      />
+      <Btn 
+     val="tab"
+     className="tab"
+      variant="contained"
+      onChange={() => onTabPress("    ")}
+
+      /> 
+      
     
     </div>
     </div>

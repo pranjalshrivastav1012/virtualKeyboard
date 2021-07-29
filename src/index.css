@@ -55,7 +55,7 @@ code {
 .capslock{
   
   height: 60px;
-  width: 150px;
+  width: 110px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +89,7 @@ code {
 .space{
   
   height: 60px;
-  width: 245px;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,7 +105,7 @@ code {
 .backspace{
   
   height: 60px;
-  width: 150px;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,4 +117,25 @@ code {
 .backspace:hover{
   background-color: grey;
   cursor: pointer
+}
+
+.enter{
+  height: 60px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 10px 10px;
+  box-shadow: 0px 2px 3px ;
+}
+.tab{
+  height: 60px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 10px 10px;
+  box-shadow: 0px 2px 3px ;
 }

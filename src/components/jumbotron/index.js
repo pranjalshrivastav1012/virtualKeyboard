@@ -66,7 +66,7 @@ function Jumbotron (props) {
     <Card className={classes.root} variant="outlined">
       <CardContent >
       <div className="jumbtron-container">  
-      <input
+      <textarea
           autoFocus="true"
            type="text"
            name="console"
