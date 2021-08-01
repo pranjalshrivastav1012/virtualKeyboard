@@ -35,13 +35,23 @@ function App() {
   const [flagg, setflagg] = useState(false) 
   const [shiftFlag, setshiftFlag] = useState(false)
   const onScreenButtonPress = (data) => {
+    if(shiftFlag) {
+      onShiftPress();
+    }
     let val = "";
     val = data;
-    flagg ? setconsoleVal(val.toUpperCase()) : setconsoleVal(val.toLowerCase());
+    (flagg || shiftFlag) ? setconsoleVal(val.toUpperCase()) : setconsoleVal(val.toLowerCase());
     let presses = buttonPresses + 1;
     setButtonPresses(presses);
     shuffleBoard();
   }
+  // const [ssflag,setssflag] = useState(false);
+  // const onShiftButtonPress = (data){
+  //   let val = "";
+  //   val = data;
+  //   ssflag ? 
+
+  // }
 
   const [values, setvalues] = useState([ 
     //['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'],
@@ -52,12 +62,13 @@ function App() {
 
   const onCapsPress = () => {
     let flag = flagg;
-    setflagg(!flag);
+    setflagg(!flag); 
   }
 
   const onShiftPress = () => {
-    let flag = shiftFlag;
-    setshiftFlag(!flag);
+    let shiftFlagg = shiftFlag;
+    setshiftFlag(!shiftFlagg);
+    console.log("ShiftPressFunc triggered")
   }
 
   const onSpacePress = (data) => {
@@ -150,13 +161,13 @@ function App() {
      className="capslock"
       variant="contained"
       val="Caps Lock"
-      flag={flagg}
       onChange={() => onCapsPress()}
       >
       </Btn>
       <Btn 
       className="shift"
       onChange={() => onShiftPress()}
+      
       val="shift"
       variant="contained"
       >
@@ -208,7 +219,9 @@ function App() {
         style={{}}
         map={map}
         shiftFlag={shiftFlag}
-        onChange={(data) => onScreenButtonPress(data)}/>
+        onChange={(data) => onScreenButtonPress(data)}
+        shiftFunc={() => onShiftPress()}
+        />
       )
   }
 }

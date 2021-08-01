@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import './index.css';
+import { useLongPress } from 'react-use';
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -22,6 +23,7 @@ function Btn (props){
       key={props.key}
       variant="contained"
       className={props.className}
+      onKeyPress={() => props.shiftFunc()}
       onClick={() => props.onChange(props.val)}
       >
         {
@@ -48,10 +50,10 @@ function Btn (props){
           case '9':
           return props.map.get(props.val)
           default: 
-         return  props.flag ? props.val.toUpperCase() : props.val.toLowerCase() }
+         return  (props.flag || props.shiftFlag) ? props.val.toUpperCase() : props.val.toLowerCase() }
         }
         else{
-          return props.flag ? props.val.toUpperCase() : props.val.toLowerCase() }
+          return (props.flag || props.shiftFlag) ? props.val.toUpperCase() : props.val.toLowerCase() }
      }
 }
 
