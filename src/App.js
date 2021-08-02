@@ -79,7 +79,7 @@ function App() {
   }
 
   const onSpacePress = (data) => {
-    console.log("ShiftPressFunc triggered : "+ shiftTextFlag);
+    // console.log("ShiftPressFunc triggered : "+ shiftTextFlag);
     let val = "";
     val = data;
     setconsoleVal(val);

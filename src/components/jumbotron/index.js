@@ -31,14 +31,13 @@ function Jumbotron (props) {
   
   useEffect(() => {
     inputRef.current.focus();
-    console.log("buttonPressTriggered");
+    // console.log("buttonPressTriggered");
     var val = value;
     if(props.inputVal === "backspace"){
-      console.log("Backspace pressed")
+      // console.log("Backspace pressed")
       setValue(val.substring(0, val.length - 1 ))
     } else {
-      console.log(props.shiftTextFlag + " : shiftTextFlag");
-      debugger
+      // console.log(props.shiftTextFlag + " : shiftTextFlag");
       if(props.shiftTextFlag){
         switch(props.inputVal){
           case "0": 
