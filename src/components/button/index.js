@@ -35,7 +35,6 @@ function Btn (props){
      );
 
      function getVal() {
-       console.log(props);
       if(props.shiftFlag){
         switch(props.val){
           case "0": 

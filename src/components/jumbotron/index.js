@@ -37,7 +37,9 @@ function Jumbotron (props) {
       console.log("Backspace pressed")
       setValue(val.substring(0, val.length - 1 ))
     } else {
-      if(props.shiftFlag){
+      console.log(props.shiftTextFlag + " : shiftTextFlag");
+      debugger
+      if(props.shiftTextFlag){
         switch(props.inputVal){
           case "0": 
           case '1':
@@ -49,11 +51,13 @@ function Jumbotron (props) {
           case '7':
           case '8':
           case '9':
-
           setValue(val + props.map.get(props.inputVal));
+          props.toggleShiftTextFlag();
           break;
          default: setValue(val + props.inputVal)
-    }}
+    }
+    
+  }
     else{
       setValue(val + props.inputVal);
     }

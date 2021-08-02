@@ -34,16 +34,17 @@ function App() {
   const [buttonPresses, setButtonPresses] = useState(0)
   const [flagg, setflagg] = useState(false) 
   const [shiftFlag, setshiftFlag] = useState(false)
+  const [shiftTextFlag, setShiftTextFlag] = useState(false)
   const onScreenButtonPress = (data) => {
-    if(shiftFlag) {
-      onShiftPress();
-    }
     let val = "";
     val = data;
     (flagg || shiftFlag) ? setconsoleVal(val.toUpperCase()) : setconsoleVal(val.toLowerCase());
     let presses = buttonPresses + 1;
     setButtonPresses(presses);
     shuffleBoard();
+    if(shiftFlag) {
+      shiftFlagToggle();
+    }
   }
   // const [ssflag,setssflag] = useState(false);
   // const onShiftButtonPress = (data){
@@ -68,15 +69,27 @@ function App() {
   const onShiftPress = () => {
     let shiftFlagg = shiftFlag;
     setshiftFlag(!shiftFlagg);
-    console.log("ShiftPressFunc triggered")
+    let shiftTextFlagg = shiftTextFlag;
+    setShiftTextFlag(!shiftTextFlagg);
+  }
+
+  const shiftFlagToggle = () => {
+    let shiftFlagg = shiftFlag;
+    setshiftFlag(!shiftFlagg);
   }
 
   const onSpacePress = (data) => {
+    console.log("ShiftPressFunc triggered : "+ shiftTextFlag);
     let val = "";
     val = data;
     setconsoleVal(val);
     let presses = buttonPresses + 1;
     setButtonPresses(presses);
+  }
+
+  const toggleShiftTextFlag = () => {
+    let shiftTextFlagg = shiftTextFlag;
+    setShiftTextFlag(!shiftTextFlagg);
   }
 
   const onEnterPress = (data) => {
@@ -127,7 +140,7 @@ function App() {
   return (
     <div>
       <div className="jumbotron-container">
-    <Jumbotron  inputVal={consoleVal} map={map} shiftFlag={shiftFlag} buttonPresses={buttonPresses} flag={flagg}/>
+    <Jumbotron  inputVal={consoleVal} map={map} shiftFlag={shiftFlag} shiftTextFlag={shiftTextFlag}  toggleShiftTextFlag={() => toggleShiftTextFlag()} buttonPresses={buttonPresses} flag={flagg}/>
     </div>
    
     <div className='items'>
@@ -167,7 +180,6 @@ function App() {
       <Btn 
       className="shift"
       onChange={() => onShiftPress()}
-      
       val="shift"
       variant="contained"
       >
@@ -216,7 +228,6 @@ function App() {
         className='button'
         key = {i}
         val={value[0]}
-        style={{}}
         map={map}
         shiftFlag={shiftFlag}
         onChange={(data) => onScreenButtonPress(data)}
